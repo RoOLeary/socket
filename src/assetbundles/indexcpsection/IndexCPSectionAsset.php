@@ -2,7 +2,7 @@
 /**
  * Socket plugin for Craft CMS 3.x
  *
- * Craft 3 Plugin for Dev testing
+ * Craft3 test plugin (again)
  *
  * @link      https://ronan-oleary.com
  * @copyright Copyright (c) 2018 Ro O'Leary

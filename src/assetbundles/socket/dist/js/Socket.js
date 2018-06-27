@@ -1,7 +1,7 @@
 /**
  * Socket plugin for Craft CMS
  *
- * SocketUtility Utility CSS
+ * Socket JS
  *
  * @author    Ro O'Leary
  * @copyright Copyright (c) 2018 Ro O'Leary

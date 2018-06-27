@@ -2,7 +2,7 @@
 /**
  * Socket plugin for Craft CMS 3.x
  *
- * Craft 3 Plugin for Dev testing
+ * Craft3 test plugin (again)
  *
  * @link      https://ronan-oleary.com
  * @copyright Copyright (c) 2018 Ro O'Leary
@@ -10,19 +10,15 @@
 
 namespace ro\socket;
 
-use ro\socket\services\SocketService as SocketServiceService;
 use ro\socket\variables\SocketVariable;
-use ro\socket\twigextensions\SocketTwigExtension;
-use ro\socket\utilities\SocketUtility as SocketUtilityUtility;
+use ro\socket\models\Settings;
 
 use Craft;
 use craft\base\Plugin;
 use craft\services\Plugins;
 use craft\events\PluginEvent;
 use craft\web\UrlManager;
-use craft\services\Utilities;
 use craft\web\twig\variables\CraftVariable;
-use craft\events\RegisterComponentTypesEvent;
 use craft\events\RegisterUrlRulesEvent;
 
 use yii\base\Event;
@@ -41,7 +37,8 @@ use yii\base\Event;
  * @package   Socket
  * @since     1.0.0
  *
- * @property  SocketServiceService $socketService
+ * @property  Settings $settings
+ * @method    Settings getSettings()
  */
 class Socket extends Plugin
 {
@@ -85,9 +82,6 @@ class Socket extends Plugin
         parent::init();
         self::$plugin = $this;
 
-        // Add in our Twig extensions
-        Craft::$app->view->registerTwigExtension(new SocketTwigExtension());
-
         // Register our site routes
         Event::on(
             UrlManager::class,
@@ -103,15 +97,6 @@ class Socket extends Plugin
             UrlManager::EVENT_REGISTER_CP_URL_RULES,
             function (RegisterUrlRulesEvent $event) {
                 $event->rules['cpActionTrigger1'] = 'socket/default/do-something';
-            }
-        );
-
-        // Register our utilities
-        Event::on(
-            Utilities::class,
-            Utilities::EVENT_REGISTER_UTILITY_TYPES,
-            function (RegisterComponentTypesEvent $event) {
-                $event->types[] = SocketUtilityUtility::class;
             }
         );
 
@@ -168,4 +153,29 @@ class Socket extends Plugin
     // Protected Methods
     // =========================================================================
 
+    /**
+     * Creates and returns the model used to store the plugin’s settings.
+     *
+     * @return \craft\base\Model|null
+     */
+    protected function createSettingsModel()
+    {
+        return new Settings();
+    }
+
+    /**
+     * Returns the rendered settings HTML, which will be inserted into the content
+     * block on the settings page.
+     *
+     * @return string The rendered settings HTML
+     */
+    protected function settingsHtml(): string
+    {
+        return Craft::$app->view->renderTemplate(
+            'socket/settings',
+            [
+                'settings' => $this->getSettings()
+            ]
+        );
+    }
 }

@@ -2,20 +2,20 @@
 /**
  * Socket plugin for Craft CMS 3.x
  *
- * Craft 3 Plugin for Dev testing
+ * Craft3 test plugin (again)
  *
  * @link      https://ronan-oleary.com
  * @copyright Copyright (c) 2018 Ro O'Leary
  */
 
-namespace ro\socket\assetbundles\socketutilityutility;
+namespace ro\socket\assetbundles\Socket;
 
 use Craft;
 use craft\web\AssetBundle;
 use craft\web\assets\cp\CpAsset;
 
 /**
- * SocketUtilityUtilityAsset AssetBundle
+ * SocketAsset AssetBundle
  *
  * AssetBundle represents a collection of asset files, such as CSS, JS, images.
  *
@@ -32,7 +32,7 @@ use craft\web\assets\cp\CpAsset;
  * @package   Socket
  * @since     1.0.0
  */
-class SocketUtilityUtilityAsset extends AssetBundle
+class SocketAsset extends AssetBundle
 {
     // Public Methods
     // =========================================================================
@@ -43,7 +43,7 @@ class SocketUtilityUtilityAsset extends AssetBundle
     public function init()
     {
         // define the path that your publishable resources live
-        $this->sourcePath = "@ro/socket/assetbundles/socketutilityutility/dist";
+        $this->sourcePath = "@ro/socket/assetbundles/socket/dist";
 
         // define the dependencies
         $this->depends = [
@@ -53,11 +53,11 @@ class SocketUtilityUtilityAsset extends AssetBundle
         // define the relative path to CSS/JS files that should be registered with the page
         // when this asset bundle is registered
         $this->js = [
-            'js/SocketUtility.js',
+            'js/Socket.js',
         ];
 
         $this->css = [
-            'css/SocketUtility.css',
+            'css/Socket.css',
         ];
 
         parent::init();

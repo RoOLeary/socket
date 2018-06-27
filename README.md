@@ -1,6 +1,6 @@
 # Socket plugin for Craft CMS 3.x
 
-Craft 3 Plugin for Dev testing
+Craft3 test plugin (again)
 
 ![Screenshot](resources/img/plugin-logo.png)
 
@@ -18,7 +18,7 @@ To install the plugin, follow these instructions.
 
 2. Then tell Composer to load the plugin:
 
-        composer require RoOLeary/socket
+        composer require /socket
 
 3. In the Control Panel, go to Settings → Plugins and click the “Install” button for Socket.
 
