@@ -1,0 +1,43 @@
+{
+    "name": "ro/socket",
+    "description": "Craft 3 Plugin for Dev testing",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "socket"
+    ],
+    "support": {
+        "docs": "https://github.com/RoOLeary/socket/blob/master/README.md",
+        "issues": "https://github.com/RoOLeary/socket/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ro O'Leary",
+            "homepage": "https://ronan-oleary.com"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0-RC1"
+    },
+    "autoload": {
+        "psr-4": {
+          "ro\\socket\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Socket",
+        "handle": "socket",
+        "hasCpSettings": false,
+        "hasCpSection": true,
+        "changelogUrl": "https://raw.githubusercontent.com/RoOLeary/socket/master/CHANGELOG.md",
+        "components": {
+            "socketService": "ro\\socket\\services\\SocketService"
+        },
+        "class": "ro\\socket\\Socket"
+    }
+}
